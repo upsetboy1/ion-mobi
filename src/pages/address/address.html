@@ -1,0 +1,69 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon class="menu-icon"><img src="assets/imgs/ic_menu.png"></ion-icon>
+    </button>
+        <ion-title>Address New address
+            <span float-right> 
+                 <ion-icon class="icon" (click)="searchPage()"><img src="assets/imgs/ic_search.png" width="100%;"></ion-icon>
+              <ion-icon class="icon" (click)="cartPage()"><img src="assets/imgs/ic_my_cart.png" width="100%;"></ion-icon>              
+            </span>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div class="form" padding-left padding-right>
+        <ion-list>
+            <ion-item>
+                <ion-label>First name</ion-label>
+                <ion-input type="text" text-right placeholder="" [(ngModel)]="address.first_name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Last name</ion-label>
+                <ion-input type="text" text-right placeholder="" [(ngModel)]="address.last_name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Email</ion-label>
+                <ion-input type="email" text-right placeholder="" [(ngModel)]="address.email"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Phone</ion-label>
+                <ion-input type="tel" text-right placeholder="" [(ngModel)]="address.phone"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Address line 1</ion-label>
+                <ion-input type="text" text-right placeholder="" [(ngModel)]="address.address_1"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Address line 2</ion-label>
+                <ion-input type="text" text-right placeholder="" [(ngModel)]="address.address_2"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>City</ion-label>
+                <ion-input type="text" text-right placeholder="" [(ngModel)]="address.city"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>State</ion-label>
+                <ion-input type="text" text-right placeholder="" [(ngModel)]="address.state"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Country</ion-label>
+                <ion-input type="text" text-right placeholder="" [(ngModel)]="address.country"></ion-input>
+            </ion-item>
+			<ion-item>
+                <ion-label>Postal code</ion-label>
+                <ion-input type="number" text-right placeholder="" [(ngModel)]="address.postcode"></ion-input>
+            </ion-item>
+            <!--
+<ion-item>
+    <ion-label>Country</ion-label>
+    <ion-input type="text" text-right placeholder="Country" [(ngModel)]="address.country"></ion-input>
+</ion-item>
+-->
+        </ion-list>
+        <div class="btn-fisx-bottom">
+            <button ion-button full class="bg-thime btn-round btn-text" (click)="saveAddress()">Save Adderss</button>
+        </div>
+    </div>
+</ion-content>

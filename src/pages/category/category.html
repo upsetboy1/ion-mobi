@@ -1,0 +1,82 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon class="menu-icon"><img src="assets/imgs/ic_menu.png" style="width: 100%"></ion-icon>
+    </button>
+        <ion-title>Categories
+            <span float-right> 
+              <ion-icon class="icon" (click)="searchPage()"><img src="assets/imgs/ic_search.png" width="100%;"></ion-icon>
+              <ion-icon class="icon" (click)="cartPage()"><img src="assets/imgs/ic_my_cart.png" width="100%;"></ion-icon>     
+            </span>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div *ngFor="let cats of categoriesAll" class="man-fashion">
+        <ion-row>
+            <ion-col col-6>
+                <figure><img *ngIf="cats[0].image != null" data-src="{{cats[0].image.src}}">
+                    <img *ngIf="cats[0].image == null" src="assets/imgs/man-fashion.png"></figure>
+            </ion-col>
+            <ion-col col-6>
+                <h6 class="text-white">{{cats[0].name}}</h6>
+                <div style="height: 150px;overflow: hidden;overflow-y: auto">
+                    <div *ngFor="let cat of cats">
+                        <p *ngIf="cat.parent != 0" class="text-white" (click)="shirtsPage(cat)">{{cat.name}}
+                            <ion-icon name="ios-arrow-forward-outline" text-right class="icon"></ion-icon>
+                        </p>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+    </div>
+
+    <!--
+
+    <div class="girl-fashion">
+        <ion-row>
+            <ion-col col-6>
+                <img src="assets/imgs/girl-fashion.png">
+            </ion-col>
+            <ion-col col-6>
+                <h6 class="text-white">WOMEN'S FASHION</h6>
+                <p class="text-white">Western Wear
+                    <ion-icon name="ios-arrow-forward-outline" text-right class="icon"></ion-icon>
+                </p>
+                <p class="text-white">Sarees
+                    <ion-icon name="ios-arrow-forward-outline" text-right class="icon"></ion-icon>
+                </p>
+                <p class="text-white">Kurtis
+                    <ion-icon name="ios-arrow-forward-outline" text-right class="icon"></ion-icon>
+                </p>
+                <p class="text-white">Lingerie
+                    <ion-icon name="ios-arrow-forward-outline" text-right class="icon"></ion-icon>
+                </p>
+            </ion-col>
+        </ion-row>
+    </div>
+
+    <div class="kids-fashion">
+        <ion-row>
+            <ion-col col-6>
+                <img src="assets/imgs/kid-fashion.png">
+            </ion-col>
+            <ion-col col-6>
+                <h6 class="text-white">KIDS'S FASHION</h6>
+                <p class="text-white">Boy's Wear
+                    <ion-icon name="ios-arrow-forward-outline" text-right class="icon"></ion-icon>
+                </p>
+                <p class="text-white">Girl's Wear
+                    <ion-icon name="ios-arrow-forward-outline" text-right class="icon"></ion-icon>
+                </p>
+                <p class="text-white">Baby Wear
+                    <ion-icon name="ios-arrow-forward-outline" text-right class="icon"></ion-icon>
+                </p>
+                <p class="text-white">Baby Girl
+                    <ion-icon name="ios-arrow-forward-outline" text-right class="icon"></ion-icon>
+                </p>
+            </ion-col>
+        </ion-row>
+    </div>
+	-->
+</ion-content>

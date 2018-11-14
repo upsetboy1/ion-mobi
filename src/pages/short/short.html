@@ -1,0 +1,26 @@
+<ion-content (click)="dismiss()">
+    <div class="group">
+        <ion-list radio-group>
+            <ion-list-header class="d-flex">
+                SORT BY
+                <ion-icon name="ios-arrow-down"></ion-icon>
+            </ion-list-header>
+            <!-- <ion-item>
+                <ion-label>Popularity</ion-label>
+                <ion-radio checked="true" value="popularity"></ion-radio>
+            </ion-item> -->
+            <ion-item (click)="sort(0)">
+                <ion-label>Newest First</ion-label>
+                <ion-radio checked="true" value="newest"></ion-radio>
+            </ion-item>
+            <ion-item (click)="sort(1)">
+                <ion-label>Price - High to Low</ion-label>
+                <ion-radio value="price_h_l"></ion-radio>
+            </ion-item>
+            <ion-item (click)="sort(2)">
+                <ion-label>Price - Low to High</ion-label>
+                <ion-radio value="price_l_h"></ion-radio>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

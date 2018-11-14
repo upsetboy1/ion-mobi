@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>MOBIMALL
+            <span float-right (click)="homePage()">Skip</span>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <p>Heart</p>
+    <div class="form" padding-left padding-right>
+        <p text-center>Please provide your Mobile number<br> to Login/Sign up on Mobimall</p>
+        <ion-list>
+            <ion-item>
+                <ion-label>Phone Number</ion-label>
+                <ion-input type="text" text-right value="+91 9876543210"></ion-input>
+            </ion-item>
+        </ion-list>
+        <button ion-button full class="bg-thime btn-round btn-text" (click)="passwordPage()">Continue</button>
+    </div>
+</ion-content>

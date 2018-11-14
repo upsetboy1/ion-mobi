@@ -1,0 +1,190 @@
+page-payment {
+    .form {
+        padding: 0 5px;
+        .item-select {
+            .select-text {
+                font-size: 1.3rem !important;
+                font-weight: 500 !important;
+            }
+        }
+        .mr-5 {
+            margin-right: 5px;
+        }
+        .select {
+            padding: 12px 8px 12px 16px !important;
+        }
+        .select-wp {
+            margin: 0;
+            border: none;
+        }
+        ion-col {
+            padding: 0 !important;
+        } //        .label {
+        //            margin: 5px 8px 5px 5px !important;
+        //        }
+        .d-flex {
+            display: flex;
+            align-items: center;
+            border: 1px solid #e4e4e4;
+            border-radius: 3px;
+            padding-right: 18px;
+            margin-bottom: 5px;
+            .item-inner {
+                border: none !important;
+                margin-bottom: 0px;
+            }
+            .calendar-icon {
+                display: block;
+                font-size: 2rem;
+            }
+        }
+    }
+    .card {
+        margin: 0 !important;
+        width: auto;
+        margin-bottom: 3px !important;
+        border-radius: 0px !important;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+        .card-content {
+            padding: 0;
+            h6 {
+                margin: 18px 0;
+                display: flex;
+                align-items: center;
+                display: flex;
+                align-items: center;
+                ion-icon {
+                    margin-right: 15px;
+                }
+            }
+        } //        .small-text {
+        //            color: #b7b7b7 !important;
+        //            font-weight: 300;
+        //            font-size: 1.2rem !important;
+        //        }
+        .item-toggle {
+            .item-inner {
+                border: none !important;
+            }
+        }
+        .toggle {
+            width: 33px !important;
+            height: 18px !important;
+        }
+        .toggle-checked {
+            .toggle-icon {
+                background: #47d664 !important;
+            }
+        }
+        .toggle-inner {
+            background: #fff !important;
+            width: 15px !important;
+            height: 15px !important;
+            top: 1px;
+        }
+        .toggle-ios .toggle-inner {
+            left: -3px;
+        }
+        .toggle-wp .toggle-icon {
+            border: none;
+            background: #ccc;
+            .toggle-inner {
+                left: -5px;
+            }
+        }
+    }
+    .heading {
+        font-size: 1.2rem;
+        border-bottom: 1px Solid #ccc;
+        line-height: 40px;
+        padding-left: 22px;
+        color: #828282;
+        font-weight: 500;
+    }
+    .item-radio {
+        &.item {
+            border-bottom: 3px solid #eaeaea !important;
+            padding-left: 25px !important;
+            &:last-child {
+                border-bottom: none !important;
+            }
+        }
+        .input-wrapper {
+            padding-left: 25px !important;
+            .label {
+                color: #000 !important;
+                font-weight: 500;
+                font-size: 1.2rem !important;
+                margin: 20px 0px !important;
+            }
+        }
+        .radio {
+            position: absolute !important;
+            margin: 0 !important;
+        }
+    }
+    .btn-padding {
+        padding: 0 10px;
+        .btn-round {
+            border-radius: 5px !important;
+            img {
+                width: 8px;
+                margin: 0 5px;
+                margin-top: -2px;
+            }
+        }
+    }
+    .spacebar {
+        height: 48px;
+        display: block;
+    }
+    .status {
+        padding: 10px;
+        font-size: 1rem;
+        span {
+            display: block;
+            position: relative;
+            margin-bottom: .5rem;
+            color: #777;
+        }
+        ion-icon {
+            font-size: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            display: block;
+            margin: auto;
+            margin-bottom: .7rem;
+        }
+        .panding,
+        .processing,
+        .complate {
+            position: relative;
+            ion-icon {
+                color: #0091ea;
+                position: relative;
+                z-index: 1
+            }
+        }
+        .processing span {
+            color: #000;
+        }
+        .processing::after,
+        .processing::before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: calc(100% - 1rem);
+            height: 1px;
+            top: 12px;
+            margin-bottom: auto;
+            z-index: -2;
+            background: #0091ea;
+        }
+        .processing::after {
+            right: calc(-50% + .5rem);
+        }
+        .processing::before {
+            left: calc(-50% + .5rem);
+        }
+    }
+}

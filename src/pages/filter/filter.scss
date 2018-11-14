@@ -1,0 +1,76 @@
+page-filter {
+    .group {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        .type-filter,
+        .size-filter {
+            width: 100%;
+            overflow: auto;
+            background: #fff;
+            span {
+                height: 4.5rem;
+                background: #e3e3e3;
+                display: inline-block;
+                margin-left: 1rem;
+                line-height: 4.5rem;
+                padding: 0 1.8rem;
+                border-radius: .5rem;
+                font-size: 1.2rem;
+                font-weight: 500;
+                &.active {
+                    background: #0091ea;
+                    color: #fff;
+                }
+            }
+        }
+        .size-filter {
+            margin-bottom: .6rem;
+            .slid-container {
+                width: 52rem;
+                padding: 1.5rem 0;
+            }
+        }
+        .type-filter {
+            .slid-container {
+                width: 42rem;
+                padding: 1.5rem 0;
+                span {
+                    border-radius: 50px;
+                    height: 2.5rem;
+                    line-height: 2.5rem;
+                }
+            }
+        }
+        .action {
+            background: #fff;
+            align-items: center;
+            .col {
+                p {
+                    font-size: 1.3rem;
+                    font-weight: 600;
+                    ion-icon {
+                        font-size: 2.8rem;
+                        width: 3rem;
+                        height: 3rem;
+                        border: 1px solid #000 !important;
+                        border-radius: 50%;
+                        line-height: 3rem;
+                    }
+                }
+            }
+            .active {
+                color: #0091ea;
+            }
+            .col {
+                padding: 0 !important;
+            }
+        }
+    }
+    .content {
+        background: rgba(0, 0, 0, 0.6);
+        .scroll-content {
+            overflow: hidden;
+        }
+    }
+}

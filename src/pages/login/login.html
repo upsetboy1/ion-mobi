@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <p text-center style="width:100%">Mobimall</p>
+        </ion-title>
+        <!--
+        <button ion-button menuToggle>
+      <ion-icon class="menu-icon"><img src="assets/imgs/ic_menu.png"></ion-icon>
+    </button>
+        <ion-title><img src="assets/imgs/logo-header.png"><span (click)="homePage()">Skip</span></ion-title>
+		-->
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div class="form bg-white" padding-left padding-right padding-bottom>
+        <p text-center padding-bottom margin-bottom>Sign in to Mobimall</p>
+        <ion-list>
+            <ion-item>
+                <ion-label>Username</ion-label>
+                <ion-input type="text" text-right placeholder="Username" [(ngModel)]="credentials.username"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Password</ion-label>
+                <ion-input type="password" text-right placeholder="Password" [(ngModel)]="credentials.password"></ion-input>
+            </ion-item>
+        </ion-list>
+        <button ion-button full class="bg-thime btn-round btn-text" (click)="singIn()">Continue</button>
+        <br>
+        <p text-center [innerHTML]="authError"></p>
+        <p text-center (click)="passwordPage()">
+            Forgot password?
+        </p>
+    </div>
+    <div class="btn-fisx-bottom">
+        <p text-center>Not registered yet?</p>
+        <button ion-button full class="bg-white btn-round text-sky btn-text" (click)="signupPage()">Registered Now</button>
+    </div>
+</ion-content>

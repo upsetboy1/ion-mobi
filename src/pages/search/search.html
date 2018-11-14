@@ -1,0 +1,69 @@
+<ion-content class="bg-light">
+    <div class="d-flex searchbar-section">
+        <ion-searchbar (ionInput)="getItems($event)" placeholder="Search Brand of product"></ion-searchbar>
+        <ion-icon name="md-close" class="close-icon" (click)="dismiss()"></ion-icon>
+    </div>
+
+    <div class="recent-search">
+        <ion-card *ngIf="queryHistory && queryHistory.length">
+            <ion-card-header>
+                Recent Search
+                <span text-right class="right" (click)="clearHistory()">Clear History</span>
+            </ion-card-header>
+            <ion-card-content>
+                <p *ngFor="let query of queryHistory" (click)="search(query)">
+                    <ion-icon name="ios-time-outline"></ion-icon>{{query}}
+                </p>
+            </ion-card-content>
+        </ion-card>
+    </div>
+
+    <div class="trending-search">
+        <p class="small">Search results for {{query}}</p>
+        <div>
+            <ion-list>
+                <ion-row *ngFor="let products of productsAll">
+                    <ion-col col-6 *ngFor="let pro of products">
+                        <ion-card>
+                            <ion-card-header>
+                                <div *ngIf="pro.images && pro.images.length" class="img-box" (click)="itemdetailPage(pro)">
+                                    <img data-src="{{pro.images[0].src}}">
+                                </div>
+                                <div *ngIf="pro.images == null || pro.images.length == 0" class="img-box" (click)="itemdetailPage(pro)">
+                                    <img src="assets/imgs/suit_PNG8132.png">
+                                </div>
+                                <ion-icon name="md-heart" class="text-light icon"></ion-icon>
+                            </ion-card-header>
+                            <ion-card-content (click)="itemdetailPage(pro)">
+                                <h5>{{pro.name}}</h5>
+                                <div class="rateing">
+                                    <div class="btn-star">
+                                        <span class="text-white bg-green small-text">{{pro.average_rating}}
+                                            <ion-icon name="md-star"></ion-icon>
+                                        </span>
+                                        <span class="text-light bold"> ({{pro.rating_count}})</span>
+                                    </div>
+                                    <div style="width: 70%;" float-right>
+                                        <div *ngIf="pro.type =='simple'" class="price text-sky" [innerHTML]="pro.sale_price_html" style="float: right;">
+                                            <!-- <img src="assets/imgs/rupee-sky.png" class="rupee-icon">{{pro.sale_price}} -->
+                                        </div>
+                                        <div *ngIf="pro.type =='variable'" class="price text-sky" [innerHTML]="pro.price_html" style="float: right;">
+                                            <!-- <img src="assets/imgs/rupee-sky.png" class="rupee-icon">{{pro.sale_price}} -->
+                                        </div>
+                                        <div *ngIf="pro.type =='simple' && pro.regular_price!=pro.sale_price" class="price text-light mr-5" [innerHTML]="pro.regular_price_html"
+                                            style="float: right;">
+                                            <!-- <img src="assets/imgs/rupee-light.png" class="rupee-icon">{{pro.regular_price}} -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </ion-card-content>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+            </ion-list>
+            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+                <ion-infinite-scroll-content></ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+        </div>
+    </div>
+</ion-content>

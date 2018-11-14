@@ -1,0 +1,122 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <button style="background-color:transparent;" ion-button (click)="goBack()">
+            <ion-icon style="color: #ffffff !important; font-size:2.4rem;" name="md-arrow-back"></ion-icon>
+        </button>
+        <ion-title>Confirm order</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+    <div class="address-section">
+        <ion-row text-center class="status">
+            <ion-col class="complate">
+                <ion-icon name="ios-checkmark-circle"></ion-icon>
+                <span>Sign in</span>
+            </ion-col>
+            <ion-col class="processing">
+                <ion-icon name="md-radio-button-off"></ion-icon>
+                <span>Shipping</span>
+            </ion-col>
+            <ion-col class="panding">
+                <ion-icon name="ion-record"></ion-icon>
+                <span>Payment</span>
+            </ion-col>
+        </ion-row>
+        <ion-card>
+            <ion-card-header>
+                <p>
+                    YOUR DELIVERY ADDRESS
+                    <span class="text-sky" (click)="addressPage()">{{addressChangeText}}
+                        <ion-icon name="ios-arrow-forward" class="icon"></ion-icon>
+                    </span>
+                </p>
+            </ion-card-header>
+            <ion-card-content *ngIf="!selectedAddress">
+                <div class="addres-detail">
+                    <h3>
+                        <ion-icon name="ios-pin-outline" class="icon-position"></ion-icon>No address selected
+                    </h3>
+                    <p>Add an address to continue.</p>
+                </div>
+            </ion-card-content>
+            <ion-card-content *ngIf="selectedAddress">
+                <div class="addres-detail">
+                    <h3>
+                        <ion-icon name="ios-pin-outline" class="icon-position"></ion-icon>{{selectedAddress.first_name}}
+                    </h3>
+                    <p>{{selectedAddress.address_1}}, {{selectedAddress.address_2}}
+                        <br> {{selectedAddress.city}}</p>
+                    <p>{{selectedAddress.phone}}</p>
+                </div>
+            </ion-card-content>
+        </ion-card>
+    </div>
+    <div class="your-items">
+        <ion-card *ngIf="cartItems && cartItems.length">
+            <ion-card-header>
+                <p>YOUR ITEMS</p>
+            </ion-card-header>
+            <ion-card-content *ngFor="let item of cartItems">
+                <ion-row>
+                    <ion-col col-3>
+                        <div *ngIf="item.product.images && item.product.images.length" class="img-box">
+                            <img data-src="{{item.product.images[0].src}}">
+                        </div>
+                        <div *ngIf="!item.product.images || !item.product.images.length" class="img-box">
+                            <img src="assets/imgs/suit_PNG8132.png">
+                        </div>
+                    </ion-col>
+                    <ion-col col-9>
+                        <h4>{{item.product.name}}</h4>
+                        <div class="rate">
+                            <div style="display: flex;" class="price-box">
+                                <div class="price text-light" padding-right [innerHTML]="item.product.regular_price_html">
+                                </div>
+                                <div class="price text-sky" [innerHTML]="item.product.sale_price_html">
+                                </div>
+                            </div>
+                            <p text-right>
+                                <span class="">
+                                    <ion-icon name="ios-add" (click)="incrementItem(item.product)"></ion-icon>
+                                    {{item.quantity}}
+                                    <ion-icon name="ios-remove" (click)="decrementItem(item.product)"></ion-icon>
+                                </span>
+                            </p>
+                        </div>
+                        <p class="card-bottom" padding-top>
+                            <span class="text-sky small" text-right (click)="removeItem(item.product)"> Remove</span>
+                        </p>
+                    </ion-col>
+                </ion-row>
+            </ion-card-content>
+        </ion-card>
+    </div>
+    <div class="spacebar-bottom"></div>
+    <div class="receipt btn-fisx-bottom">
+        <ion-card>
+            <ion-card-header>
+                <p>Item(s) price
+                    <span text-right [innerHTML]="total_items_html">
+                    </span>
+                </p>
+                <p>Delivery Payable
+                    <span text-right [innerHTML]="deliveryPayble">
+                    </span>
+                </p>
+                <p *ngIf="coupon">Coupon({{coupon.code}}) applied
+                    <span text-right [innerHTML]="couponAmount">
+                    </span>
+                </p>
+                <div text-center class="text-sky" (click)="codePage()">Have Promocode?</div>
+            </ion-card-header>
+            <ion-card-content>
+                <p>Amount Payable
+                    <span text-right [innerHTML]="total_html">
+                    </span>
+                </p>
+                <button ion-button full class="bg-green btn-round green-shadow btn-text" (click)="paymentPage()">CONTINUE</button>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>

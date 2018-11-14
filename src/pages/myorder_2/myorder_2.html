@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon class="menu-icon"><img src="assets/imgs/ic_menu.png"></ion-icon>
+    </button>
+        <ion-title>My Order
+            <span float-right> 
+              <ion-icon class="icon" (click)="searchPage()"><img src="assets/imgs/ic_search.png" width="100%;"></ion-icon>
+              <ion-icon class="icon" (click)="cartPage()"><img src="assets/imgs/ic_my_cart.png" width="100%;"></ion-icon>             
+            </span>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+    <ion-list>
+        <ion-card *ngFor="let order of orders">
+            <ion-card-content>
+                <ion-row *ngFor="let item of order.line_items">
+                    <ion-col>
+                        <h4 (click)="itemdetailPage(item)">{{item.name}}</h4>
+                        <div class="card-btn" float-right>
+                            <small *ngIf="order.status == 'on-hold' || order.status == 'pending'|| order.status == 'processing'" class="text-sky" (click)="cancelOrder(order)">Cancel order</small>
+                            <small class="text-green">{{order.status}}</small>
+                        </div>
+                        <div class="rate">
+                            <p class=text-light>Ordered on {{order.date_created}}</p>
+                            <div style="display: flex;">
+                                <!-- <div class="price text-light mr-5">
+                                <img src="assets/imgs/rupee-light.png" class="rupee-icon">{{item.price}}
+                            </div> -->
+                                <div class="price text-sky" [innerHTML]="item.price_html">
+                                    <!-- <img src="assets/imgs/rupee-sky.png" class="rupee-icon">0 -->
+                                </div>
+                            </div>
+                        </div>
+                    </ion-col>
+                </ion-row>
+
+            </ion-card-content>
+        </ion-card>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

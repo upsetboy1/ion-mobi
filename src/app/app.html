@@ -1,0 +1,83 @@
+<ion-menu [content]="content">
+    <ion-header>
+        <ion-toolbar>
+            <ion-list>
+                <ion-item menuClose (click)="actionNavHeader()">
+                    <ion-avatar item-start>
+                        <img src="assets/imgs/icon.png">
+                    </ion-avatar>
+                    <h2 *ngIf="user">Hey {{user.username}}
+                        <ion-icon name="ios-arrow-forward"></ion-icon>
+                    </h2>
+                    <h2 *ngIf="!user">Hey Guest
+                        <ion-icon name="ios-arrow-forward"></ion-icon>
+                    </h2>
+                    <p *ngIf="user">{{user.email}}</p>
+                </ion-item>
+            </ion-list>
+        </ion-toolbar>
+        <div *ngIf="user" class="menu-tabs" padding text-center>
+            <ion-row>
+                <ion-col menuClose (click)="myorder_1Page()">
+                    <img src="assets/imgs/my_order.png">
+                    <p>My Order</p>
+                </ion-col>
+                <!-- <ion-col col-4 menuClose (click)="my_accountPage()">
+                    <img src="assets/imgs/my-card.png">
+                    <p>My Card</p>
+                </ion-col> -->
+                <ion-col menuClose (click)="addressPage()">
+                    <img src="assets/imgs/my_location.png">
+                    <p>My Addresses</p>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-header>
+
+    <ion-content>
+        <div class="menu-title">
+            <ion-list>
+                <button ion-item menuClose (click)="homePage()">
+                    <img src="assets/imgs/ic_home.png ">
+                        Home
+                </button>
+                <button ion-item menuClose (click)="categoriesPage()">
+                    <img src="assets/imgs/ic_categories.png ">
+                        Categories
+                </button>
+                <!--
+                <button ion-item menuClose (click)="myorder_2Page()">
+                    <img src="assets/imgs/ic_my_cart.png ">
+                        My Cart
+                </button>
+-->
+                <button ion-item menuClose (click)="wishlistPage()">
+                    <img src="assets/imgs/ic_my_wishlist.png ">
+                        My Wishlist
+                </button>
+                <button *ngIf="user" ion-item menuClose (click)="my_accountPage()">
+                    <img src="assets/imgs/ic_my_account.png ">
+                        My Account
+                </button>
+                <button ion-item menuClose (click)="helpPage()">
+                    <img src="assets/imgs/ic_help.png ">
+                        Help Center
+                </button>
+                <button *ngIf="user" ion-item menuClose (click)="phonenumberPage()">
+                    <img src="assets/imgs/ic_logout.png ">
+                        Logout
+                </button>
+                <!--
+                <button ion-item menuClose (click)="reviewPage()">
+                    <img src="assets/imgs/ic_more.png ">
+                        Add Reviews
+                </button>
+				-->
+            </ion-list>
+        </div>
+    </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage " #content swipeBackEnabled="false "></ion-nav>

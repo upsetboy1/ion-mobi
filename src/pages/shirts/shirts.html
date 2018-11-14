@@ -1,0 +1,72 @@
+<ion-header class="bg-thime">
+    <ion-navbar>
+        <ion-title>{{category.name}}
+            <span float-right>
+                <ion-icon class="icon" (click)="wishlistPage()">
+                    <img src="assets/imgs/ic_my_wishlist.png" width="100%;">
+                </ion-icon>
+                <ion-icon class="icon" (click)="cartPage()">
+                    <img src="assets/imgs/ic_my_cart.png" width="100%;">
+                </ion-icon>
+            </span>
+        </ion-title>
+    </ion-navbar>
+    <div class="d-flex icon-box">
+        <ion-searchbar (ionInput)="getItems($event)" placeholder="Search" (click)="searchPage()" style="margin-right: 7px;"></ion-searchbar>
+        <!-- <ion-icon class="icon" (click)="sortPage()">
+            <img src="assets/imgs/ic_short.png" width="100%;">
+        </ion-icon>
+        <ion-icon class="icon" (click)="filterPage()" style="margin-right: 7px;">
+            <img src="assets/imgs/ic_filter.png" width="100%;">
+        </ion-icon> -->
+    </div>
+</ion-header>
+
+
+<ion-content class="bg-light">
+    <ion-list>
+        <ion-row *ngFor="let products of productsAll">
+            <ion-col *ngFor="let pro of products">
+                <ion-card>
+                    <ion-card-header>
+                        <div *ngIf="pro.images && pro.images.length" class="img-box" (click)="itemdetailPage(pro)">
+                            <img data-src="{{pro.images[0].src}}">
+                        </div>
+                        <div *ngIf="pro.images == null || pro.images.length == 0" class="img-box" (click)="itemdetailPage(pro)">
+                            <img src="assets/imgs/suit_PNG8132.png">
+                        </div>
+                        <ion-icon name="md-heart" class="text-light icon"></ion-icon>
+                    </ion-card-header>
+                    <ion-card-content (click)="itemdetailPage(pro)">
+                        <h5>{{pro.name}}</h5>
+                        <div class="rateing">
+                            <div class="card-btn">
+                                <p class="" float-left>
+                                    <span class="text-white bg-green small-text">{{pro.average_rating}}
+                                        <ion-icon name="md-star"></ion-icon>
+                                    </span>
+                                    <span class="text-light bold"> ({{pro.rating_count}})</span>
+                                </p>
+                                <div style="width: 70%;" float-right>
+                                    <div *ngIf="pro.type =='simple'" class="price text-sky" [innerHTML]="pro.sale_price_html" style="float: right;">
+                                        <!-- <img src="assets/imgs/rupee-sky.png" class="rupee-icon">{{pro.sale_price}} -->
+                                    </div>
+                                    <div *ngIf="pro.type =='variable'" class="price text-sky" [innerHTML]="pro.price_html" style="float: right;">
+                                        <!-- <img src="assets/imgs/rupee-sky.png" class="rupee-icon">{{pro.sale_price}} -->
+                                    </div>
+                                    <div *ngIf="pro.type =='simple' && pro.regular_price!=pro.sale_price" class="price text-light mr-5" [innerHTML]="pro.regular_price_html"
+                                        style="float: right;">
+                                        <!-- <img src="assets/imgs/rupee-light.png" class="rupee-icon">{{pro.regular_price}} -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

@@ -1,0 +1,277 @@
+page-shippining {
+	.toolbar-content,
+    .d-flex {
+        display: flex;
+        align-items: center;
+    }
+    .address-section {
+        width: 100%;
+        .card {
+            width: auto;
+            margin: 0;
+            .card-content {
+                padding: 0 30px 10px 30px !important;
+            }
+            .addres-detail {
+                padding-left: 2rem;
+                h3 {
+                    font-size: 1.3rem;
+                    font-weight: 500;
+                    color: #000;
+                    display: flex;
+                    align-items: center;
+                    .icon-position {
+                        position: absolute;
+                        margin-left: -2rem;
+                        margin-top: 1px;
+                    }
+                    span {
+                        margin-left: auto;
+                        color: #007ce6;
+                        .icon {
+                            margin-left: 5px;
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+                p {
+                    font-size: 1.1rem;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    color: #000;
+                }
+            }
+        }
+    }
+    .card-header {
+        border-bottom: 1px solid #ccc;
+        padding: 16px 25px;
+        margin-bottom: 10px;
+        p {
+            align-items: center;
+            margin: 0 !important;
+            width: 100%;
+            font-size: 1.2rem;
+            color: #7c7c7c;
+            display: flex;
+            span {
+                margin-left: auto;
+                position: relative;
+                padding-right: 16px;
+                .icon {
+                    margin-left: 10px;
+                    margin-top: 3px;
+                    position: absolute;
+                }
+            }
+        }
+    }
+    .your-items {
+        .card-content {
+            border-bottom: 1px solid #ccc;
+        }
+        .card {
+            width: auto;
+            margin: 6px;
+        }
+        .img-box {
+            width: 100%;
+            max-width: 60px;
+            height: 75px;
+            position: relative;
+            img {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                max-height: 100%;
+                max-width: 100%;
+                left: 0;
+                right: 0;
+            }
+        }
+        h4 {
+            font-size: 1.2rem !important;
+            font-weight: 500 !important;
+            letter-spacing: 1px;
+            line-height: 1.5;
+            height: 34px;
+            overflow: hidden;
+        }
+        .rate {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            margin-bottom: -5px;
+            .price-box {
+                margin-right: auto;
+                width: 60%;
+                .price {
+                    padding-left: 10px;
+                    position: relative;
+                    display: block;
+                    font-weight: 700;
+                    font-size: 1.3rem;
+                    &.text-light {
+                        font-weight: 400;
+                        text-decoration: line-through;
+                    }
+                    .rupee-icon {
+                        width: 7px;
+                        position: absolute;
+                        top: 3.5px;
+                        left: 0px;
+                    }
+                }
+            }
+            p {
+                font-size: 1.3rem;
+                font-weight: 500 !important;
+                margin-left: auto;
+                color: #000;
+                display: flex;
+                align-items: center;
+                span {
+                    margin-left: 6px !important;
+                    position: relative;
+                    margin-left: auto;
+                    display: flex;
+                    align-items: center;
+                    color: #7b7b7b !important;
+                    .icon {
+                        min-width: 3rem;
+                        margin-top: 2px;
+                        text-align: center;
+                        font-size: 1.6rem;
+                    }
+                }
+            }
+        }
+        .card-bottom {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            .small {
+                margin-left: auto;
+                font-weight: 500;
+                font-size: 1.1rem;
+            }
+        }
+    }
+    .receipt {
+        .card {
+            width: auto;
+            margin: 0 !important;
+            .card-header {
+                p {
+                    font-size: 1.2rem !important;
+                    color: #000 !important;
+                    line-height: 26px;
+                    span {
+                        display: flex;
+                        align-items: center;
+                        padding-right: 0 !important;
+                        img {
+                            width: 8px;
+                            margin-right: 4px;
+                        }
+                    }
+                }
+            }
+            .card-content {
+                p {
+                    font-size: 1.3rem !important;
+                    color: #000 !important;
+                    line-height: 25px;
+                    display: flex;
+                    font-weight: 600;
+                    padding: 0 8px 5px 9px;
+                    span {
+                        display: flex;
+                        align-items: center;
+                        padding-right: 0 !important;
+                        margin-left: auto;
+                        img {
+                            width: 8px;
+                            margin-right: 4px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .mr-5 {
+        margin-right: 5px;
+    }
+    .spacebar-bottom {
+        height: 200px;
+        display: block;
+    }
+    .btn-fisx-bottom {
+        height: 200px;
+        .card-header {
+            padding: 10px 25px;
+        }
+        div {
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 8px 0 8px;
+        }
+    }
+    .status {
+        padding: 10px;
+        font-size: 1rem;
+        span {
+            display: block;
+            position: relative;
+            margin-bottom: .5rem;
+            color: #777;
+        }
+        ion-icon {
+            font-size: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            display: block;
+            margin: auto;
+            margin-bottom: .7rem;
+        }
+        .processing,
+        .complate {
+            position: relative;
+            ion-icon {
+                color: #0091ea;
+                position: relative;
+                z-index: 1
+            }
+        }
+        .processing span {
+            color: #000;
+        }
+        .processing::after,
+        .processing::before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: calc(100% - 1rem);
+            height: 1px;
+            top: 12px;
+            margin-bottom: auto;
+            z-index: -2;
+        }
+        .processing::after {
+            background: #ccc;
+            right: calc(-50% + .5rem);
+        }
+        .processing::before {
+            background: #0091ea;
+            left: calc(-50% + .5rem);
+        }
+        .panding {
+            ion-icon {
+                border-radius: 50%;
+                background: #ccc;
+            }
+        }
+    }
+}

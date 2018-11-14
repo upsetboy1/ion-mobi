@@ -1,0 +1,359 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon class="menu-icon">
+                <img src="assets/imgs/ic_menu.png">
+            </ion-icon>
+        </button>
+        <ion-title class="text-white" *ngIf="product">{{product.categories[0].name}}
+            <span float-right>
+                <ion-icon class="icon" (click)="searchPage()">
+                    <img src="assets/imgs/ic_search.png" width="100%;">
+                </ion-icon>
+                <ion-icon class="icon" (click)="cartPage()">
+                    <img src="assets/imgs/ic_my_cart.png" width="100%;">
+                </ion-icon>
+            </span>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<!--<select size & color>-->
+<ion-content class="bg-light">
+    <div *ngIf="product" class="img-section shadow-bottom" text-center>
+        <figure class="img-box">
+            <img *ngIf="imageToDisplay" data-src="{{imageToDisplay}}">
+            <img *ngIf="!imageToDisplay" src="assets/imgs/item-img.png">
+        </figure>
+
+        <div *ngIf="product.images && product.images.length" class="tab-btn-box">
+            <div class="tab-btn">
+                <img data-src="{{product.images[0].src}}" (click)="showImage(product.images[0].src)">
+            </div>
+            <div *ngIf="product.images.length > 1" class="tab-btn">
+                <img data-src="{{product.images[1].src}}" (click)="showImage(product.images[1].src)">
+            </div>
+            <div *ngIf="product.images.length > 2" class="tab-btn">
+                <img data-src="{{product.images[2].src}}" (click)="showImage(product.images[2].src)">
+            </div>
+            <!--
+			<div *ngIf="product.images.length > 3" class="tab-btn">
+                <img data-src="{{product.images[3].src}}" (click)="showImage(product.images[3].src)">
+            </div>
+			-->
+        </div>
+        <div class="d-flex" style="align-items: start;">
+            <span>{{product.name}}</span>
+            <span class="icon">
+                <ion-icon name="share-alt" (click)="shareProduct(product)"></ion-icon>
+                <ion-icon *ngIf="product.favorite" name="ios-heart" class="text-light icon" (click)="toggleFavorite(product)"></ion-icon>
+                <ion-icon *ngIf="!product.favorite" name="ios-heart-outline" class="text-light icon" (click)="toggleFavorite(product)"></ion-icon>
+            </span>
+        </div>
+        <div class="card-btn">
+            <div class="d-flex" style="padding: 1rem">
+                <div style="margin-right:  auto;">
+                    <small class="text-white bg-green" float-left>{{product.average_rating}}
+                        <ion-icon name="md-star"></ion-icon>
+                    </small>
+                    <span *ngIf="product.rating_count > 0" class="text-sky small-text ">Read all {{product.rating_count}} Review</span>
+                </div>
+                <div *ngIf="product.type==simple" style="width: 70%;" float-right>
+                    <div class="price text-sky" [innerHTML]="product.sale_price_html" style="float: right;">
+                        <!-- <img src="assets/imgs/rupee-sky.png" class="rupee-icon">{{pro.sale_price}} -->
+                    </div>
+                    <div *ngIf="product.regular_price!=product.sale_price" class="price text-light mr-5" [innerHTML]="product.regular_price_html"
+                        style="float: right;">
+                        <!-- <img src="assets/imgs/rupee-light.png" class="rupee-icon">{{pro.regular_price}} -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+	<div class="select-section shadow-bottom">
+        <ion-row>
+            <ion-col col-6>
+                <div class="size">
+                    <ion-item>
+                        <ion-label>Size</ion-label>
+                        <ion-select [(ngModel)]="notifications" interface="action-sheet">
+                            <ion-option value="enable">Small</ion-option>
+                            <ion-option selected value="mute">Medium</ion-option>
+                            <ion-option value="mute_week"> large</ion-option>
+                        </ion-select>
+                    </ion-item>
+                </div>
+            </ion-col>
+            <ion-col col-6>
+                <div class="color">
+                    <ion-item>
+                        <ion-label>Color</ion-label>
+                        <ion-select [(ngModel)]="notifications" interface="action-sheet">
+                            <ion-option selected value="enable">Black</ion-option>
+                            <ion-option value="mute">White</ion-option>
+                            <ion-option value="mute_week">Red</ion-option>
+                        </ion-select>
+                    </ion-item>
+                </div>
+            </ion-col>
+        </ion-row>
+    </div>
+    -->
+
+    <!-- Variations start -->
+    <div *ngIf="productVariations && productVariations.length" class="your-items" padding-top>
+        <ion-card-header>
+            <p>Product Variations</p>
+        </ion-card-header>
+        <ion-card-content *ngFor="let item of productVariations">
+            <ion-row>
+                <ion-col col-3>
+                    <div *ngIf="item.images && item.images.length" class="img-box">
+                        <img data-src="{{item.images[0].src}}">
+                    </div>
+                    <div *ngIf="!item.images || !item.images.length" class="img-box">
+                        <img src="assets/imgs/suit_PNG8132.png">
+                    </div>
+                </ion-col>
+                <ion-col col-9>
+                    <h4>{{item.name}}</h4>
+                    <div class="rate">
+                        <div style="display: flex;" class="price-box">
+                            <div class="price text-light" padding-right [innerHTML]="item.regular_price_html">
+                            </div>
+                            <div class="price text-sky" [innerHTML]="item.sale_price_html">
+                            </div>
+                        </div>
+                        <p text-right class="card-bottom">
+                            <button ion-button class="small button btn-round bg-green" text-right (click)="buyVariation(item)"> Buy now</button>
+                        </p>
+                    </div>
+                    <p class="card-bottom">
+                        <button ion-button class="small button btn-round" text-right (click)="addVariation(item)"> Add to cart</button>
+                    </p>
+                </ion-col>
+            </ion-row>
+        </ion-card-content>
+        <!-- <ion-scroll scrollX="true" style="height:205px;white-space: nowrap;">
+            <ion-card *ngFor="let pro of productVariations" class="products-item">
+                <ion-card-header>
+                    <div *ngIf="pro.images && pro.images.length" class="img-box" (click)="itemdetailPage(pro)">
+                        <img data-src="{{pro.images[0].src}}">
+                    </div>
+                    <div *ngIf="pro.images == null || pro.images.length == 0" class="img-box" (click)="itemdetailPage(pro)">
+                        <img src="assets/imgs/suit_PNG8132.png">
+                    </div>
+                </ion-card-header>
+                <ion-card-content>
+                    <h5>{{pro.name}}</h5>
+                    <div class="rateing">
+                        <div class="card-bottom">
+                            <p class="" float-left>
+                                <span class="text-white bg-green small-text" (click)="addVariation(pro)">Add</span>
+                                <span class="text-white bg-green small-text" (click)="buyVariation(pro)">Buy</span>
+                            </p>
+                            <div class="d-flex" float-right>
+                                <div class="price text-light mr-5" [innerHTML]="pro.regular_price_html">
+                                </div>
+                                <div class="price text-sky" [innerHTML]="pro.sale_price_html">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+        </ion-scroll> -->
+    </div>
+    <!-- Variations end -->
+
+    <!--    <Key features>-->
+    <div style="height: 36px;"></div>
+    <div *ngIf="product" class="features bg-white shadow-bottom" padding>
+        <h6 class="heading">Description</h6>
+        <div *ngIf="!details" [innerHTML]="product.short_description"></div>
+        <div *ngIf="details" [innerHTML]="product.description"></div>
+        <span *ngIf="!details" text-right class="text-sky" (click)="viewMore()">View more
+            <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+        </span>
+        <span *ngIf="details" text-right class="text-sky" (click)="viewLess()">View less
+            <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+        </span>
+    </div>
+    <!--  <Key features end>-->
+
+    <!--
+    <div class="pincod bg-white shadow-bottom" padding>
+        <h6 class="heading">Check Delivery</h6>
+        <ion-row>
+            <ion-col col-8>
+                <ion-list>
+                    <ion-item>
+                        <ion-input type="text" placeholder="Username"></ion-input>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+            <ion-col col-4>
+                <button ion-button full class="bg-sky btn-round btn-text">Submit</button>
+            </ion-col>
+        </ion-row>
+        <p>
+            <span>Cash on Delivery</span>
+            <span text-center>Free Sheeping</span>
+            <span text-right>Delivery in 3-6 Days</span>
+        </p>
+    </div>
+    -->
+
+    <div *ngIf="reviews && reviews.length" class="reating-review bg-white" padding>
+        <!--
+        <div class="reating">
+            <div class="rated">
+                <ion-badge class="badges bg-green text-white">
+                    4.2
+                    <ion-icon name="md-star"></ion-icon>
+                </ion-badge>
+                <p class="text-light">
+                    <span text-center>
+                        Rated by<br>125 poeple
+                    </span>
+                </p>
+            </div>
+
+            <div class="reating-box">
+                <div class="rating">
+                    <div class="text-1">5
+                        <ion-icon name="md-star"></ion-icon>
+                    </div>
+                    <div class="progres-bar rate-5"><span style="width: 90%"></span></div>
+                    <div class="text-2">88
+                        <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="rating">
+                    <div class="text-1">4
+                        <ion-icon name="md-star"></ion-icon>
+                    </div>
+                    <div class="progres-bar rate-4"><span style="width: 70%"></span></div>
+                    <div class="text-2">88
+                        <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="rating">
+                    <div class="text-1">3
+                        <ion-icon name="md-star"></ion-icon>
+                    </div>
+                    <div class="progres-bar rate-3"><span style="width: 50%"></span></div>
+                    <div class="text-2">88
+                        <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="rating">
+                    <div class="text-1">2
+                        <ion-icon name="md-star"></ion-icon>
+                    </div>
+                    <div class="progres-bar rate-2"><span style="width: 35%"></span></div>
+                    <div class="text-2">88
+                        <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="rating">
+                    <div class="text-1">1
+                        <ion-icon name="md-star"></ion-icon>
+                    </div>
+                    <div class="progres-bar rate-1"><span style="width: 20%"></span></div>
+                    <div class="text-2">88
+                        <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+		-->
+
+        <div class="lick">
+            <div *ngFor="let review of reviews">
+                <p padding-top>
+                    <span class="left-side">
+                        <ion-badge class="badges bg-green text-white">{{review.rating}}
+                            <ion-icon name="md-star"></ion-icon>
+                        </ion-badge>
+                        <span class="bold">{{review.name}}</span>
+                    </span>
+                    <span class="right-side">
+                        <span class="text-light">{{review.date_created}}</span>
+                    </span>
+                </p>
+
+                <h5 style="overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
+                    {{review.review}}
+                </h5>
+            </div>
+            <h4 class="text-sky" text-right>
+                Read all reviews
+                <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+            </h4>
+            <div class="btn review">Write your review now</div>
+        </div>
+    </div>
+    <!--    <reating & review end>-->
+
+    <!--    <similar Products>-->
+    <div *ngIf="productsResponse && productsResponse.length" class="products" padding-top>
+        <h6 class="heading">Similar Products
+            <span text-right class="text-sky" (click)="viewMoreSimilar()">View more
+                <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+            </span>
+        </h6>
+        <ion-scroll scrollX="true" style="height:205px;white-space: nowrap;">
+            <ion-card *ngFor="let pro of productsResponse" class="products-item">
+                <ion-card-header>
+                    <div *ngIf="pro.images && pro.images.length" class="img-box" (click)="itemdetailPage(pro)">
+                        <img data-src="{{pro.images[0].src}}">
+                    </div>
+                    <div *ngIf="pro.images == null || pro.images.length == 0" class="img-box" (click)="itemdetailPage(pro)">
+                        <img src="assets/imgs/suit_PNG8132.png">
+                    </div>
+                    <ion-icon *ngIf="pro.favorite" name="ios-heart" class="text-light icon" (click)="toggleFavorite(pro)"></ion-icon>
+                    <ion-icon *ngIf="!pro.favorite" name="ios-heart-outline" class="text-light icon" (click)="toggleFavorite(pro)"></ion-icon>
+                </ion-card-header>
+                <ion-card-content>
+                    <h5>{{pro.name}}</h5>
+                    <div class="rateing">
+                        <div class="card-bottom">
+                            <p class="" float-left>
+                                <span class="text-white bg-green small-text">{{pro.average_rating}}
+                                    <ion-icon name="md-star"></ion-icon>
+                                </span>
+                                <span class="text-light bold"> ({{pro.rating_count}})</span>
+                            </p>
+                            <div class="d-flex" float-right>
+                                <div class="price text-light mr-5" [innerHTML]="pro.regular_price_html">
+                                    <!-- <img src="assets/imgs/rupee-light.png" class="rupee-icon">{{pro.regular_price}} -->
+                                </div>
+                                <div class="price text-sky" [innerHTML]="pro.sale_price_html">
+                                    <!-- <img src="assets/imgs/rupee-sky.png" class="rupee-icon">{{pro.sale_price}} -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+        </ion-scroll>
+    </div>
+    <!--    <similar Products end>-->
+    <div style="height: 65px;"></div>
+    <div *ngIf="product && product.type=='simple'" class="receipt btn-fisx-bottom">
+        <ion-row>
+            <ion-col>
+                <button ion-button full class="btn-round green-shadow btn-text" style="background: #fff;color: #4dd711;" (click)="addToCart()">ADD TO CART</button>
+            </ion-col>
+            <ion-col>
+                <button ion-button full class="bg-green btn-round green-shadow btn-text" (click)="buyNow()"> BUY NOW</button>
+            </ion-col>
+        </ion-row>
+    </div>
+
+    <!--    <reating & review end>-->
+
+</ion-content>

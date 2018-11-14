@@ -1,0 +1,207 @@
+page-my_account {
+    ion-header {
+        .item {
+            background: transparent !important;
+            border: none !important;
+            .item-inner {
+                border: none !important;
+                ion-label {
+                    margin-right: 0 !important;
+                }
+                h2 {
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                    padding-top: 2px;
+                    color: #fff;
+                    display: flex;
+                    align-items: center;
+                    small {
+                        font-weight: 400;
+                        margin-left: auto;
+                    }
+                }
+                p {
+                    font-size: 1.1rem;
+                    color: #000;
+                    letter-spacing: 1px;
+                }
+            }
+            ion-avatar {
+                min-width: 60px !important;
+                min-height: 60px !important;
+                img {
+                    min-width: 60px !important;
+                    min-height: 60px !important;
+                }
+            }
+        }
+        .tab-bar {
+            padding: 0 10px !important;
+            min-height: 42px;
+            .toolbar-background {
+                background: #164968 !important;
+            }
+            .segment-button {
+                text-transform: none;
+                color: #ffffff;
+                margin-bottom: -0 !important;
+                position: relative;
+                border: none !important;
+                &::after {
+                    content: '';
+                    display: block;
+                    height: 4px;
+                    width: 60px;
+                    position: absolute;
+                    bottom: 0px;
+                    margin: auto;
+                    left: 0;
+                    right: 0;
+                }
+                &.segment-activated {
+                    &::after {
+                        background: #0091ea;
+                    }
+                }
+            }
+        }
+    }
+    ion-content {
+        .profile-section {
+            padding: 10px;
+            .item {
+                padding-right: 16px !important;
+            }
+            .label {
+                position: relative;
+                margin-bottom: -5px !important;
+                margin-top: 20px !important;
+                text-transform: uppercase;
+                font-size: 1.5rem;
+                font-weight: 500;
+                color: #7c7c7c;
+            }
+            .text-input {
+                font-size: 1.3rem;
+                font-weight: 500;
+                border: none !important;
+                margin-top: 5px;
+            }
+            .item-inner {
+                border-bottom: 1px solid #dedede !important;
+                box-shadow: none !important;
+                margin-bottom: 14px;
+            }
+            .btn-fisx-bottom {
+                position: fixed;
+                bottom: 15px;
+                padding: 5px 32px;
+                margin: 0 auto;
+                left: 0;
+                right: 0;
+                .btn-text {
+                    color: #fff !important;
+                    font-weight: 100 !important;
+                    font-size: 1.4rem;
+                    letter-spacing: 0;
+                }
+            }
+        }
+        .address-section,
+        .card-section {
+            padding: 2px 0px;
+            min-height: calc(100vh - 98px);
+            .card {
+                border-radius: 4px;
+                box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+                ion-card-content {
+                    .card-row {
+                        display: flex;
+                        align-items: center;
+                        img {
+                            width: 70px;
+                            margin-left: auto;
+                        }
+                    }
+                }
+                .d-flex {
+                    display: flex;
+                    align-items: center;
+                    p {
+                        display: flex;
+                        align-items: center;
+                        margin: 0 !important;
+                        width: 100%;
+                        font-size: 1.3rem;
+                        color: #7c7c7c;
+                        span {
+                            margin-left: auto;
+                            color: #007ce6;
+                            display: flex;
+                            align-items: center;
+                            ion-icon {
+                                margin-left: .8rem;
+                                margin-top: 1px;
+                            }
+                        }
+                    }
+                }
+                .date-cvc-row {
+                    display: flex;
+                    align-items: center;
+                    .cvc {
+                        width: 170px;
+                        margin-left: 5px;
+                    }
+                    .State {
+                        margin-left: 5px;
+                    }
+                }
+            }
+        }
+        .address-section {
+            .addres-detail {
+                padding-left: 2rem;
+                h3 {
+                    font-size: 1.3rem;
+                    font-weight: 500;
+                    color: #000;
+                    display: flex;
+                    align-items: center;
+                    .icon-position {
+                        position: absolute;
+                        margin-left: -2rem;
+                        margin-top: 1px;
+                    }
+                    span {
+                        margin-left: auto;
+                        color: #007ce6;
+                        .icon {
+                            margin-left: 5px;
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+                p {
+                    font-size: 1.1rem;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    color: #000;
+                }
+            }
+        }
+        .new-addres {
+            h3 {
+                display: flex;
+                align-items: center;
+                color: #919191;
+                text-transform: uppercase;
+                ion-icon {
+                    font-size: 2rem;
+                    color: #b1b1b1;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}

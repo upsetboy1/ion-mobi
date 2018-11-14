@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon class="menu-icon">
+                <img src="assets/imgs/ic_menu.png">
+            </ion-icon>
+        </button>
+        <ion-title>Add new address
+            <span float-right>
+                <ion-icon class="icon" (click)="searchPage()">
+                    <img src="assets/imgs/ic_search.png" width="100%;">
+                </ion-icon>
+                <ion-icon class="icon" (click)="cartPage()">
+                    <img src="assets/imgs/ic_my_cart.png" width="100%;">
+                </ion-icon>
+            </span>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg-light">
+    <div class="address-section">
+        <p text-center padding-bottom margin-bottom>
+            Edit/Select address</p>
+        <ion-card>
+            <ion-card-content *ngIf="!addresses || !addresses.length">
+                <div class="addres-detail">
+                    <h3>
+                        <ion-icon name="ios-pin-outline" class="icon-position"></ion-icon>No address to show
+                    </h3>
+                    <p>Add an address.</p>
+                </div>
+            </ion-card-content>
+            <ion-card-content *ngIf="addresses && addresses.length">
+                <div *ngFor="let address of addresses" class="addres-detail" (click)="addressEditSelect(address)">
+                    <h3>
+                        <ion-icon name="ios-pin-outline" class="icon-position"></ion-icon>{{address.first_name}}
+                    </h3>
+                    <p>{{address.address_1}}, {{address.address_2}}
+                        <br> {{address.city}}</p>
+                    <p>{{address.phone}}</p>
+                </div>
+            </ion-card-content>
+        </ion-card>
+
+    </div>
+    <ion-card>
+        <ion-card-content>
+            <div class="new-addres" (click)="addressNew()">
+                <h3>
+                    <ion-icon ios="ios-add-circle-outline" md="ios-add-circle-outline"></ion-icon>Add New Address
+                </h3>
+            </div>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

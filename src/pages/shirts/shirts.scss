@@ -1,0 +1,143 @@
+page-shirts {
+    .d-flex {
+        display: flex;
+        align-items: center;
+    }
+    .mr-8 {
+        margin-right: 8px;
+    }
+    .searchbar {
+        padding: 8px;
+        padding-right: 0;
+        border-bottom: none !important;
+        background: none !important;
+        .searchbar-input {
+            border-radius: 5px !important;
+            font-size: 1.4rem;
+            font-weight: 300;
+            line-height: 2.8rem;
+            padding: 6px 43px;
+            box-shadow: none !important;
+        }
+        .searchbar-input-container {
+            border: none !important;
+        }
+        .searchbar-search-icon {
+            left: 9px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        .searchbar-input {
+            height: 3.7rem !important;
+        }
+    }
+    .icon-box {
+        .icon {
+            width: 60px;
+            background: #fff;
+            text-align: center;
+            border-radius: 5px;
+            margin-left: 6px;
+            overflow: hidden;
+        }
+    }
+    .row {
+        padding: 2px 3px !important;
+    }
+    .card {
+        width: 100% !important;
+        margin: 0 !important;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+        border-radius: 5px !important;
+        .card-header {
+            position: relative;
+            padding: 7px !important;
+            .img-box {
+                width: 85px;
+                margin: 0 auto;
+                height: 100px;
+                position: relative;
+                text-align: center;
+                margin-bottom: 5px;
+                margin-top: 5px;
+                img {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    max-height: 100%;
+                    width: auto;
+                    left: 0;
+                    right: 0;
+                }
+            }
+            .icon {
+                position: absolute;
+                top: 6px;
+                right: 8px;
+                font-size: 1.5rem;
+            }
+        }
+        .card-content {
+            padding: 0 10px !important;
+            padding-bottom: 12px !important;
+            h5 {
+                font-size: 1.1rem;
+                font-weight: 500;
+                color: #000;
+                height: 25px;
+                overflow: hidden;
+                margin-bottom: 7px;
+            }
+            .rateing {
+                margin-top: 10px;
+                .price {
+                    text-align: right;
+                    position: relative;
+                    display: block;
+                    font-weight: 600;
+                    font-size: 1rem;
+                    &.text-light {
+                        font-weight: 400;
+                        text-decoration: line-through;
+                    }
+                    .rupee-icon {
+                        width: 6px !important;
+                        position: absolute;
+                        top: 3px;
+                        left: 0px;
+                    }
+                }
+            }
+            .card-btn {
+                display: flex;
+                align-items: center;
+                p {
+                    line-height: 17px;
+                    font-size: .8rem;
+                    letter-spacing: 1px;
+                    width: 60px;
+                    .small-text {
+                        width: 35px;
+                        font-size: .6rem;
+                        text-align: center;
+                        display: inline-block;
+                        border-radius: 3px;
+                        padding: 0px 0 0 1px;
+                        height: 16px;
+                    }
+                    .bold {
+                        font-weight: 600 !important;
+                    }
+                }
+            }
+        }
+        .mr-5 {
+            margin-right: 7px;
+        }
+    }
+    .back-button {
+        display: block;
+    }
+}

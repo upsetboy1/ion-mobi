@@ -1,0 +1,109 @@
+<ion-header class="bg-thime">
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon class="menu-icon">
+                <img src="assets/imgs/ic_menu.png">
+            </ion-icon>
+        </button>
+        <ion-title>Wishlist
+            <span float-right>
+                <ion-icon class="icon" (click)="cartPage()">
+                    <img src="assets/imgs/ic_my_cart.png" width="100%;">
+                </ion-icon>
+            </span>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-light">
+    <ion-card *ngIf="!favorites.length">
+        <ion-card-content>
+            <h3>No favorites added</h3>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-list>
+        <ion-row *ngFor="let products of productsAll">
+            <ion-col *ngFor="let pro of products">
+                <ion-card>
+                    <ion-card-header>
+                        <div *ngIf="pro.images && pro.images.length" class="img-box" (click)="itemdetailPage(pro)">
+                            <img data-src="{{pro.images[0].src}}">
+                        </div>
+                        <div *ngIf="pro.images == null || pro.images.length == 0" class="img-box" (click)="itemdetailPage(pro)">
+                            <img src="assets/imgs/suit_PNG8132.png">
+                        </div>
+                        <ion-icon *ngIf="pro.favorite" name="ios-heart" class="text-light icon" (click)="toggleFavorite(pro)"></ion-icon>
+                        <ion-icon *ngIf="!pro.favorite" name="ios-heart-outline" class="text-light icon" (click)="toggleFavorite(pro)"></ion-icon>
+                    </ion-card-header>
+                    <ion-card-content (click)="itemdetailPage(pro)">
+                        <h5>{{pro.name}}</h5>
+                        <div class="rateing">
+                            <div class="card-btn">
+                                <p class="" float-left>
+                                    <span class="text-white bg-green small-text">{{pro.average_rating}}
+                                        <ion-icon name="md-star"></ion-icon>
+                                    </span>
+                                    <span class="text-light bold"> ({{pro.rating_count}})</span>
+                                </p>
+                                <div style="width: 70%;" float-right>
+                                    <div *ngIf="pro.type =='simple'" class="price text-sky" [innerHTML]="pro.sale_price_html" style="float: right;">
+                                        <!-- <img src="assets/imgs/rupee-sky.png" class="rupee-icon">{{pro.sale_price}} -->
+                                    </div>
+                                    <div *ngIf="pro.type =='variable'" class="price text-sky d-flex" [innerHTML]="pro.price_html" style="float: right;">
+                                        <!-- <img src="assets/imgs/rupee-sky.png" class="rupee-icon">{{pro.sale_price}} -->
+                                    </div>
+                                    <div *ngIf="pro.type =='simple' && pro.regular_price!=pro.sale_price" class="price text-light mr-5" [innerHTML]="pro.regular_price_html"
+                                        style="float: right;">
+                                        <!-- <img src="assets/imgs/rupee-light.png" class="rupee-icon">{{pro.regular_price}} -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-list>
+
+    <!-- <ion-card *ngFor="let fav of favorites">
+        <ion-card-content>
+            <ion-row>
+                <ion-col col-3>
+                    <div *ngIf="fav.images && fav.images.length" class="img-box" (click)="itemdetailPage(pro)">
+                        <img data-src="{{fav.images[0].src}}">
+                    </div>
+                    <div *ngIf="fav.images == null || fav.images.length == 0" class="img-box" (click)="itemdetailPage(pro)">
+                        <img src="assets/imgs/suit_PNG8132.png">
+                    </div>
+                </ion-col>
+                <ion-col col-9>
+                    <h4>{{fav.name}}
+                        <span class="icon text-light">
+                            <img src="assets/imgs/delete.png" (click)="removeFavorite(pro)">
+                        </span>
+                    </h4>
+                    <div class="rateing">
+                        <p class=text-light>{{fav.categories[0].name}}</p>
+                        <div class="card-btn" padding-top>
+                            <div class="">
+                                <div float-left>
+                                    <small class="text-white bg-green" float-left>{{fav.average_rating}}
+                                        <ion-icon name="md-star"></ion-icon>
+                                    </small>
+                                    <span class="text-light small-text">({{fav.rating_count}} reviews)</span>
+                                </div>
+                                <div style="display: flex;" float-right>
+                                    <div class="price text-light mr-5" [innerHTML]="fav.regular_price_html">
+    </div>
+    <div class="price text-sky" [innerHTML]="fav.sale_price_html">
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </ion-col>
+    </ion-row>
+    </ion-card-content>
+    </ion-card> -->
+</ion-content>

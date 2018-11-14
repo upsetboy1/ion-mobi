@@ -1,0 +1,343 @@
+// page-wishlist {
+//     .card {
+//         margin: 5px;
+//         border-radius: 5px;
+//         width: calc(100% - 10px);
+//         box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+//         .mr-5 {
+//             margin-right: 8px;
+//         }
+//         .card-content {
+//             padding-right: 5px !important;
+//             padding-top: 5px !important;
+//             padding-bottom: 5px !important;
+//             .img-box {
+//                 height: 90px;
+//                 width: 100%;
+//                 max-width: 60px;
+//                 margin: 0 auto;
+//                 position: relative;
+//                 img {
+//                     max-width: 100%;
+//                     position: absolute;
+//                     max-height: 100% !important;
+//                     top: 0;
+//                     bottom: 0;
+//                     left: 0;
+//                     right: 0;
+//                     margin: auto;
+//                 }
+//             }
+//             h4 {
+//                 //                font-size: 1.2rem !important;
+//                 font-weight: 500 !important;
+//                 letter-spacing: 1px;
+//                 position: relative;
+//                 display: flex;
+//                 align-items: stretch;
+//                 height: 26px;
+//                 overflow: hidden;
+//                 .icon {
+//                     min-width: 22px;
+//                     img {
+//                         min-width: 22px;
+//                     }
+//                 }
+//             }
+//             .rateing {
+//                 //                display: flex;
+//                 align-items: center;
+//                 margin-top: 7px;
+//                 p {
+//                     font-size: 1.2rem;
+//                     width: 80% !important;
+//                     font-weight: 300 !important;
+//                 }
+//                 .price {
+//                     //width: 50px;
+//                     padding-left: 10px;
+//                     position: relative;
+//                     display: block;
+//                     font-weight: 600;
+//                     font-size: 1.1rem;
+//                     margin-top: 4px;
+//                     &.text-light {
+//                         font-weight: 400;
+//                         text-decoration: line-through;
+//                     }
+//                     .rupee-icon {
+//                         width: 6px !important;
+//                         position: absolute;
+//                         top: 3px;
+//                         left: 0px;
+//                     }
+//                 }
+//                 .small-text {
+//                     font-size: .9rem;
+//                     margin-left: 5px;
+//                 }
+//             }
+//             .card-btn {
+//                 small {
+//                     width: 49px;
+//                     text-align: center;
+//                     display: inline-block;
+//                     line-height: 19px;
+//                     border-radius: 3px;
+//                     font-size: .85rem;
+//                     letter-spacing: 1px;
+//                 }
+//             }
+//         }
+//     }
+//     @media (max-width: 350px) {
+//         .rateing {
+//             p {
+//                 font-size: 1rem !important;
+//             }
+//         }
+//         h4 {
+//             font-size: 1.1rem !important;
+//         }
+//     }
+// }
+page-wishlist {
+    ion-navbar {
+        ion-title {
+            img.icon {
+                display: block;
+                height: 18px;
+            }
+        }
+    }
+    .list {
+        margin: 0 !important;
+    }
+    .searchbar {
+        padding: 5px 8px;
+        border-bottom: none !important;
+        background: none !important;
+        .searchbar-input {
+            border-radius: 5px !important;
+            font-size: 1.4rem;
+            font-weight: 300;
+            line-height: 2.8rem;
+            height: 3.7rem !important;
+            padding: 6px 43px;
+            box-shadow: none !important;
+        }
+        .searchbar-input-container {
+            border: none !important;
+        }
+        .searchbar-search-icon {
+            left: 10px;
+            top: 9px;
+        }
+    }
+    .tab-row {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .header {
+        .img-box {
+            width: 100%;
+            max-width: 50px;
+            margin: 0 auto;
+            figure {
+                position: relative;
+                height: 50px;
+                width: 50px;
+                margin: 0;
+                padding: 0;
+                border-radius: 50%;
+                overflow: hidden;
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                    top: 0;
+                    left: 0;
+                }
+                img {
+                    position: absolute;
+                    width: auto !important;
+                    height: 100%;
+                }
+            }
+            small {
+                font-size: .9rem !important;
+                white-space: nowrap;
+                width: 100%;
+                overflow: hidden;
+                display: block;
+                margin-top: 9px;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+    ion-slides {
+        height: auto !important;
+    }
+    p {
+        font-size: 1.2rem;
+        margin-left: 16px;
+        margin-right: 10px;
+        small {
+            width: 68px;
+            text-align: center;
+            line-height: 25px;
+            margin-top: -4px;
+            font-weight: 100 !important;
+            font-size: 1.1rem;
+            letter-spacing: 1.1px;
+        }
+    }
+    .row {
+        padding: 0 5px !important;
+    }
+    .card {
+        width: 100% !important;
+        margin: 0 !important;
+        border-radius: 5px !important;
+        .card-header {
+            position: relative;
+            padding: 7px !important;
+            .img-box {
+                width: 85px;
+                margin: 0 auto;
+                height: 100px;
+                position: relative;
+                text-align: center;
+                margin-bottom: 5px;
+                margin-top: 5px;
+                img {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    max-height: 100%;
+                    max-width: 100%;
+                    left: 0;
+                    right: 0;
+                }
+            }
+            .icon {
+                position: absolute;
+                top: 6px;
+                right: 8px;
+                font-size: 1.5rem;
+            }
+        }
+        .card-content {
+            padding: 0 10px !important;
+            padding-bottom: 12px !important;
+            h5 {
+                font-size: 1.1rem;
+                font-weight: 500;
+                color: #000;
+                height: 25px;
+                overflow: hidden;
+                margin-bottom: 7px;
+            }
+            .rateing {
+                margin-top: 10px;
+                .card-btn {
+                    display: flex;
+                    align-items: center;
+                }
+                .price {
+                    //width: 50px;
+                    text-align: right;
+                    position: relative;
+                    display: block;
+                    font-weight: 600;
+                    font-size: 1rem;
+                    margin-top: 1px;
+                    &.text-light {
+                        font-weight: 400;
+                        text-decoration: line-through;
+                    }
+                    .rupee-icon {
+                        width: 5px !important;
+                        position: absolute;
+                        top: 3px;
+                        left: 2px
+                    }
+                }
+            }
+            .card-btn {
+                p {
+                    line-height: 17px;
+                    font-size: .8rem;
+                    letter-spacing: 1px;
+                    width: 60px;
+                    .small-text {
+                        width: 35px;
+                        font-size: .6rem;
+                        text-align: center;
+                        display: inline-block;
+                        border-radius: 3px;
+                        padding: 0px 0 0 1px;
+                        height: 16px;
+                    }
+                    .bold {
+                        font-weight: 600 !important;
+                    }
+                }
+            }
+        }
+    }
+    .mr-5 {
+        margin-right: 7px;
+    }
+    ion-slide {
+        margin-bottom: .5rem;
+    }
+    .banner-text {
+        position: absolute;
+        top: 0;
+        text-align: left;
+        color: #fff;
+        padding: 5px;
+        small {
+            font-size: 1rem;
+            font-weight: 100;
+            margin-top: -5px;
+            display: block;
+            margin-left: 16px;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-left: 16px;
+            margin-top: 24px;
+        }
+    }
+    .swiper-pagination-bullet {
+        width: 5px !important;
+        height: 5px !important;
+        background: transparent !important;
+        opacity: 1 !important;
+        border: 1px solid #fff !important;
+    }
+    .swiper-pagination-bullet-active {
+        background: #ffffff !important;
+    }
+    .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+        margin: 0 3px;
+    }
+    img {
+        display: block;
+    }
+    .back-button {
+        display: none !important;
+    }
+    .ion-ios-heart {
+        color: red !important;
+    }
+    .ion-ios-heart-outline {
+        color: red !important;
+    }
+}

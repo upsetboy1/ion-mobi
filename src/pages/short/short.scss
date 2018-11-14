@@ -1,0 +1,45 @@
+page-short {
+    .item {
+        height: 4rem;
+        min-height: 1rem;
+    }
+    .item-inner {
+        border: none !important;
+    }
+    .label {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+    .d-flex {
+        .label {
+            display: flex;
+            align-items: center;
+            color: #a3a3a3;
+            .icon {
+                margin-left: auto;
+            }
+        }
+    }
+    .group {
+        position: absolute;
+        padding: 10px 15px;
+        width: 100%;
+        bottom: 0;
+        background: #fff;
+        ion-list {
+            margin-bottom: 1rem;
+        }
+    }
+    .content {
+        background: rgba(0, 0, 0, 0.5);
+        .scroll-content {
+            overflow: hidden;
+        }
+    }
+    .item .radio {
+        margin: 0 !important;
+    }
+    .list-header {
+        margin: 0;
+    }
+}

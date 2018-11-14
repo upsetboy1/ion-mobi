@@ -1,0 +1,31 @@
+page-code {
+    .bg-light {
+        background: rgba(0, 0, 0, .2)!important;
+        position: relative;
+    }
+    .code {
+        background: #fff;
+        width: 300px;
+        margin: auto;
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 220px;
+        border-radius: 1rem;
+        text-align: center;
+        padding: 16px 32px;
+        h2 {
+            font-weight: 700;
+            font-size: 2rem;
+        }
+        ion-input {
+            border: 1px solid #eee;
+            margin: 2rem 0rem;
+            width: 100%;
+            border-radius: 5px;
+        }
+    }
+}

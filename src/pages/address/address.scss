@@ -1,0 +1,43 @@
+page-address {
+    .scroll-content {
+        margin-bottom: 92px;
+        .form {
+            .label {
+                margin-left: 15px !important;
+            }
+            ion-list.list {
+                margin-bottom: 1rem !important;
+            }
+            .d-flex {
+                display: flex;
+                align-items: center;
+                border: 1px solid #e4e4e4;
+                border-radius: 3px;
+                padding-right: 18px;
+                margin-bottom: 5px;
+                .item-inner {
+                    border: none !important;
+                    margin-bottom: 0px;
+                }
+                .eye-icon {
+                    display: block;
+                    font-size: 2.5rem;
+                }
+            }
+            .btn-fisx-bottom {
+                position: fixed;
+                bottom: 15px;
+                padding: 5px 32px;
+                margin: 0 auto;
+                left: 0;
+                right: 0;
+                .btn-text {
+                    color: #fff !important;
+                    font-weight: 100 !important;
+                    font-size: 1.4rem;
+                    letter-spacing: 0;
+                }
+            }
+        }
+    }
+}

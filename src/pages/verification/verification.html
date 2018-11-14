@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon class="menu-icon"><img src="assets/imgs/ic_menu.png"></ion-icon>
+    </button>
+        <ion-title>Verification Code</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div class="form" padding-left padding-right>
+        <p text-center>Please enter Verification code <br>sent on +91 903 335 6708</p>
+        <ion-list>
+            <ion-item>
+                <ion-label>Verification code</ion-label>
+                <ion-input type="text" text-right value="______"></ion-input>
+            </ion-item>
+        </ion-list>
+        <button ion-button full class="bg-thime btn-round btn-text" (click)="createaccountPage()">Verify</button>
+        <p text-center>
+            <span float-left class="text-sky">Resend</span>
+            <span float-right>1:32 min left</span>
+        </p>
+    </div>
+</ion-content>

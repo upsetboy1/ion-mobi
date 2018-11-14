@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Create Account</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div class="form" padding-left padding-right>
+        <p text-center padding-bottom margin-bottom>Create your Account on Mobiall</p>
+        <ion-list>
+            <ion-item>
+                <ion-label>Username</ion-label>
+                <ion-input type="text" text-right placeholder="Username" [(ngModel)]="registerRequest.username"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Email address</ion-label>
+                <ion-input type="email" text-right placeholder="Email Address" [(ngModel)]="registerRequest.email"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Password</ion-label>
+                <ion-input type="password" text-right placeholder="Create Password" [(ngModel)]="registerRequest.password"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Confirm assword</ion-label>
+                <ion-input type="password" text-right placeholder="Confirm Password" [(ngModel)]="registerRequestPasswordConfirm"></ion-input>
+            </ion-item>
+        </ion-list>
+        <p text-center [innerHTML]="authError"></p>
+        <button ion-button full class="bg-thime btn-round btn-text" (click)="register()">Continue</button>
+    </div>
+    <p text-center (click)="signinPage()" class="btn-fisx-bottom">
+        <small>
+            Already registered?
+            <span class="text-sky">
+                Sign in
+            </span>
+        </small>
+    </p>
+</ion-content>

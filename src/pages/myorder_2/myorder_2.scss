@@ -1,0 +1,76 @@
+page-myorder_2 {
+    .card {
+        margin: 5px;
+        width: calc(100% - 10px);
+        border-radius: 5px;
+        .mr-5 {
+            margin-right: 5px;
+        }
+        .card-content {
+            padding-right: 5px !important;
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
+            h4 {
+                font-size: 1.2rem !important;
+                font-weight: 500 !important;
+                letter-spacing: 1px;
+                float: left;
+                display: block;
+                width: calc(100% - 100px);
+                line-height: 1.5;
+                height: 35px;
+                overflow: hidden;
+            }
+            .card-btn {
+                width: 100px;
+                text-align: right;
+            }
+            .rate {
+                display: flex;
+                align-items: center;
+                clear: both;
+                padding-top: 5px;
+                p {
+                    font-size: 1.1rem;
+                    width: 80% !important;
+                    font-weight: 300 !important;
+                }
+                .price {
+                    padding-left: 10px;
+                    position: relative;
+                    display: block;
+                    font-weight: 600;
+                    font-size: 1.1rem;
+                    &.text-light {
+                        font-weight: 400;
+                        text-decoration: line-through;
+                    }
+                    .rupee-icon {
+                        width: 7px;
+                        position: absolute;
+                        top: 4px;
+                        left: 0px;
+                    }
+                }
+            }
+            .card-btn {
+                small {
+                    width: 89px;
+                    text-align: center;
+                    display: inline-block;
+                    line-height: 24px;
+                    border-radius: 3px;
+                    font-size: 1rem;
+                    letter-spacing: 1px;
+                    color: #53fb5a;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    @media (max-width: 350px) {
+        .rate p {
+            font-size: 1rem !important;
+        }
+    }
+}

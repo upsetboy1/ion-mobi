@@ -1,0 +1,32 @@
+page-placed {
+    .img-box {
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    h3 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin-top: 0;
+        padding-bottom: 7px;
+    }
+    h4 {
+        color: #9f9f9f;
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 127px;
+        strong {
+            color: #000 !important;
+            font-weight: 600!important;
+        }
+    }
+    .btn-padding {
+        padding: 0 10px;
+        .btn-round {
+            border-radius: 5px !important;
+        }
+    }
+}
